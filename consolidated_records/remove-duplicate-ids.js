@@ -2,7 +2,7 @@
 // @name         Remove Duplicate IDs
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @updateURL    https://github.com/jamie-r-davis/slate_userscripts/blob/master/consolidated_records/remove-duplicate-ids.js
+// @updateURL    https://raw.githubusercontent.com/jamie-r-davis/slate_userscripts/master/consolidated_records/remove-duplicate-ids.js
 // @description  try to take over the world!
 // @author       You
 // @match        https://enrollmentconnect.umich.edu/manage/database/dedupe
