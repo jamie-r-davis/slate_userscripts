@@ -33,6 +33,20 @@
             }
         }
     }
+    
+    function DeleteSiblings() {
+        function DeleteSibs(el) {
+            let nextElement = el.nextSibling;
+            el.parentNode.removeChild(el);
+            if (nextElement) {
+                DeleteSibs(nextElement)
+            };
+            return
+        }
+        let currentElement = document.querySelector('input[type=checkbox]:checked').closest('tr');
+        (!currentElement) ? alert('Check the row where you want to begin removing') : DeleteSibs(currentElement);
+        UpdateEstimates();
+    }
 
     class View {
         static get folder() {
@@ -75,6 +89,8 @@
             parent.insertBefore(btn, parent.firstChild);
         }
     }
-
+    
+    AddBtn('Remove Rows', DeleteSiblings);
     AddBtn('Remove Dup IDs', RemoveDuplicates);
+    
 })();
