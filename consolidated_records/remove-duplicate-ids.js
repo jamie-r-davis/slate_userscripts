@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Duplicate IDs
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @updateURL    https://raw.githubusercontent.com/jamie-r-davis/slate_userscripts/master/consolidated_records/remove-duplicate-ids.js
 // @description  try to take over the world!
 // @author       You
@@ -64,12 +64,16 @@
     }
 
     function AddBtn(text, event) {
-        let btn = document.createElement('button');
-        btn.innerText = text;
-        btn.addEventListener('click', event);
-        btn.style['margin-right'] = '0.5rem';
-        let parent = document.querySelector('#content');
-        parent.insertBefore(btn, parent.firstChild);
+        let id = text.toLowerCase().replace(/\s+/, '_');
+        if (!document.getElementById(id)) {
+            let btn = document.createElement('button');
+            btn.setAttribute('id', id);
+            btn.innerText = text;
+            btn.addEventListener('click', event);
+            btn.style['margin-right'] = '0.5rem';
+            let parent = document.querySelector('#content');
+            parent.insertBefore(btn, parent.firstChild);
+        }
     }
 
     AddBtn('Remove Dup IDs', RemoveDuplicates);
